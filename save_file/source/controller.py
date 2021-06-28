@@ -1,14 +1,15 @@
 from Houdini.save_file.source import core
 from Houdini.common_ import clean_mode
-from Houdini.globals import PROJECT
+from Houdini.globals import PROJECT, ROOT_PATH
 
-try:
-    import ipm_v2
-except ImportError:
-    import sys
-    sys.path.append(USER_PATH + '/ISART_PROJECT_MANAGER/PY/')
-
-    import ipm_v2
+from Odin.source.core import assets
+# try:
+#     import ipm_v2
+# except ImportError:
+#     import sys
+#     sys.path.append(USER_PATH + '/ISART_PROJECT_MANAGER/PY/')
+#
+#     import ipm_v2
 
 class Controller(object):
 
@@ -90,7 +91,7 @@ class Controller(object):
         self.get_asset(self.asset_type)
 
     def get_asset(self, asset_type):
-        assets = ipm_v2.ct_find_assets(PROJECT, asset_type)
+        assets = assets.find_assets(ROOT_PATH, PROJECT, asset_type)
         if assets:
             assets.sort()
 
