@@ -1,15 +1,8 @@
 from Houdini.save_file.source import core
-from Houdini.common_ import clean_mode
 from Houdini.globals import PROJECT, ROOT_PATH
 
 from Odin.source.core import assets
-# try:
-#     import ipm_v2
-# except ImportError:
-#     import sys
-#     sys.path.append(USER_PATH + '/ISART_PROJECT_MANAGER/PY/')
-#
-#     import ipm_v2
+
 
 class Controller(object):
 
@@ -59,7 +52,6 @@ class Controller(object):
 
         choice, save_choice = self.ui.message_box()
         if choice == save_choice:
-            clean_mode()
             if first_save:
                 self.filepath = core.first_save(self.asset_type, self.asset_name, self.dpt)
             else:
@@ -91,13 +83,12 @@ class Controller(object):
         self.get_asset(self.asset_type)
 
     def get_asset(self, asset_type):
-        assets = assets.find_assets(ROOT_PATH, PROJECT, asset_type)
-        if assets:
-            assets.sort()
+        assets_ = assets.find_assets(ROOT_PATH, PROJECT, asset_type)
+        if assets_:
+            assets_.sort()
 
             self.library_box.clear()
-            self.library_box.addItems(assets)
-
+            self.library_box.addItems(assets_)
 
     def mod_action(self):
         self.mod_btn.setChecked(True)
