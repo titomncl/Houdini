@@ -1,5 +1,7 @@
 import hou
 
+from PySide2 import QtWidgets as Qw
+
 from Houdini.save_file.source.ui import UI
 from Houdini.save_file.source.controller import Controller
 
@@ -11,7 +13,7 @@ def main():
     for child in main_window.children():
         print(child, child.objectName())
 
-    for win in main_window.findChildren(Qw.QWidget, name):
+    for win in main_window.findChildren(Qw.QWidget, "SaveFile"):
         win.close()
 
     instance = Controller(UI, main_window)
