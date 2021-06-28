@@ -43,7 +43,9 @@ class Controller(object):
         if not self.filepath:
             self.show()
         else:
-            self.filepath = core.save(self.filepath)
+            choice, save_choice = self.ui.message_box()
+            if choice == save_choice:
+                self.filepath = core.save(self.filepath)
 
     def show(self):
         self.ui.show()
