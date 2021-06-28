@@ -13,7 +13,7 @@ class UI(Qw.QWidget):
 
         Qw.QWidget.__init__(self, parent)
 
-        self.setParent(get_main_window())
+        self.setParent(parent)
         self.setWindowFlags(Qc.Qt.Tool)
 
         self.setWindowTitle("Save File")

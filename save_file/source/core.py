@@ -1,7 +1,5 @@
 import os
 
-from shutil import copyfile
-
 from CommonTools.concat import concat
 
 from Houdini.globals import PFE_PATH
