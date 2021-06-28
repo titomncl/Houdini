@@ -75,13 +75,13 @@ class UI(Qw.QWidget):
         self.shd_btn.setCheckable(True)
         self.shd_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
-        self.rig_btn = Qw.QPushButton("SET")
-        self.rig_btn.setCheckable(True)
-        self.rig_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
+        self.set_btn = Qw.QPushButton("SET")
+        self.set_btn.setCheckable(True)
+        self.set_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
         h_layout.addWidget(self.mod_btn)
         h_layout.addWidget(self.shd_btn)
-        h_layout.addWidget(self.rig_btn)
+        h_layout.addWidget(self.set_btn)
 
         v_layout = Qw.QVBoxLayout()
 
