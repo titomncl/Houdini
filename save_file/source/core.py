@@ -5,12 +5,14 @@ from CommonTools.concat import concat
 from Houdini.globals import PFE_PATH
 from Houdini.common_ import get_filepath, save_as
 
+
 def filepath():
     try:
         filepath = get_filepath()
         return filepath
     except RuntimeError:
         return None
+
 
 def save(filepath):
 
