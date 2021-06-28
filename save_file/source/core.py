@@ -90,8 +90,10 @@ def first_save(type, name, task):
         str, str: versionned and published filepath
 
     """
-    filename = concat(name, task, "001.ma", separator="_")
+    filename = concat(name, task, "001.hip", separator="_")
     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
+
+    print(filepath)
 
     save_as(filepath)
 
