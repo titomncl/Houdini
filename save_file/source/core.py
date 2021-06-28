@@ -93,8 +93,6 @@ def first_save(type, name, task):
     filename = concat(name, task, "001.hip", separator="_")
     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
 
-    print(filepath)
-
     save_as(filepath)
 
     return filepath

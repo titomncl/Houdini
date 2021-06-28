@@ -12,6 +12,8 @@ class Controller(object):
 
         self.ui = ui(self, parent)
 
+        self.first_save_or_not()
+
         self.asset_type = "CHARA"
         self.asset_name = ""
         self.dpt = "MOD"
@@ -37,25 +39,21 @@ class Controller(object):
 
         self.init_btn_connections()
 
-        self.first_save_or_not()
-
     def first_save_or_not(self):
         if not self.filepath:
             self.show()
         else:
-            self.save_file(first_save=False)
+            self.filepath = core.save(self.filepath)
 
     def show(self):
         self.ui.show()
 
-    def save_file(self, first_save=True):
+    def save_file(self):
 
         choice, save_choice = self.ui.message_box()
         if choice == save_choice:
-            if first_save:
-                self.filepath = core.first_save(self.asset_type, self.asset_name, self.dpt)
-            else:
-                self.filepath = core.save(self.filepath)
+            self.filepath = core.first_save(self.asset_type, self.asset_name, self.dpt)
+
             self.ui.close()
 
     def init_btn_connections(self):
