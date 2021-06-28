@@ -10,9 +10,6 @@ def main():
 
     hou.session.mainWindow = main_window = hou.qt.mainWindow()
 
-    for child in main_window.children():
-        print(child, child.objectName())
-
     for win in main_window.findChildren(Qw.QWidget, "SaveFile"):
         win.close()
 
