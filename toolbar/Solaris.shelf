@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <shelfSet name="solaris_1" label="Solaris Main">
+    <memberToolshelf name="lop_lights_and_cameras"/>
+  </shelfSet>
+
+  <shelfSet name="solaris_2" label="Solaris Geometry">
+    <memberToolshelf name="test_geometry"/>
+  </shelfSet>
+  
+  <toolshelf name="test_geometry" label="Test Geometry">
+    <memberTool name="sop_testgeometry_crag"/>
+    <memberTool name="sop_testgeometry_pighead"/>
+    <memberTool name="sop_testgeometry_rubbertoy"/>
+    <memberTool name="sop_testgeometry_shaderball"/>
+    <memberTool name="sop_testgeometry_squab"/>
+    <memberTool name="sop_testgeometry_tommy"/>
+  </toolshelf>
+
+  <toolshelf name="lop_lights_and_cameras" label="LOP Lights and Cameras">
+    <memberTool name="object_cam"/>
+    <memberTool name="object_pointlight"/>
+    <memberTool name="object_spotlight"/>
+    <memberTool name="object_arealight"/>
+    <memberTool name="obj_geolight"/>
+    <memberTool name="obj_volumelight"/>
+    <memberTool name="object_distantlight"/>
+    <memberTool name="object_envlight"/>
+  </toolshelf>
+
+</shelfDocument>
