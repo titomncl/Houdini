@@ -64,20 +64,6 @@ def next_version(file_):
         raise ValueError(e)
 
 
-# def publish(filepath):
-#     path, name = os.path.split(filepath)
-#
-#     publish_path = path.rsplit("/", 1)[0]
-#     publish_path = concat(publish_path, "PUBLISH", separator="/")
-#
-#     name, ext = os.path.splitext(name)
-#     publish_name = name.rsplit("_", 1)[0] + ext
-#
-#     publish = concat(publish_path, publish_name, separator="/")
-#
-#     copyfile(filepath, publish)
-
-
 def first_save(type, name, task):
     """
 
@@ -96,7 +82,7 @@ def first_save(type, name, task):
     #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, "SCENE/OLD", filename, separator="/")
     # else:
     #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
-    filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
+    filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/VERSION", filename, separator="/")
 
     save_as(filepath)
 
