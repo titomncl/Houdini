@@ -58,6 +58,7 @@ class UI(Qw.QWidget):
         self.fx_btn = Qw.QPushButton("FX")
         self.fx_btn.setCheckable(True)
         self.fx_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
+        self.fx_btn.setEnabled(False)  # TODO talk with teddy about workflow with cache files
 
         h_layout.addWidget(self.chara_btn)
         h_layout.addWidget(self.props_btn)
