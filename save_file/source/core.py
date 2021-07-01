@@ -91,6 +91,11 @@ def first_save(type, name, task):
 
     """
     filename = concat(name, task, "001.hip", separator="_")
+
+    # if task is "FX":
+    #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, "SCENE/OLD", filename, separator="/")
+    # else:
+    #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
 
     save_as(filepath)

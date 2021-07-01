@@ -51,12 +51,22 @@ class UI(Qw.QWidget):
         self.props_btn.setCheckable(True)
         self.props_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
+        self.set_btn = Qw.QPushButton("SET")
+        self.set_btn.setCheckable(True)
+        self.set_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
+
+        self.fx_btn = Qw.QPushButton("FX")
+        self.fx_btn.setCheckable(True)
+        self.fx_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
+
         h_layout.addWidget(self.chara_btn)
         h_layout.addWidget(self.props_btn)
+        h_layout.addWidget(self.set_btn)
+        h_layout.addWidget(self.fx_btn)
 
         v_layout = Qw.QVBoxLayout()
 
-        label = Qw.QLabel("Character or Props:")
+        label = Qw.QLabel("Character, Props, Set or FX:")
 
         v_layout.addWidget(label)
         v_layout.addLayout(h_layout)
@@ -75,13 +85,13 @@ class UI(Qw.QWidget):
         self.shd_btn.setCheckable(True)
         self.shd_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
-        self.set_btn = Qw.QPushButton("SET")
-        self.set_btn.setCheckable(True)
-        self.set_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
+        self.shd_btn = Qw.QPushButton("RIG")
+        self.rig_btn.setCheckable(True)
+        self.rig_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
         h_layout.addWidget(self.mod_btn)
         h_layout.addWidget(self.shd_btn)
-        h_layout.addWidget(self.set_btn)
+        h_layout.addWidget(self.rig_btn)
 
         v_layout = Qw.QVBoxLayout()
 

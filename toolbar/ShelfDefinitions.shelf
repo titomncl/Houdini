@@ -82,6 +82,8 @@
 
   <toolshelf name="vspa" label="VSPA">
     <memberTool name="save_file"/>
+    <memberTool name="scene_loader"/>
+    <memberTool name="publish"/>
   </toolshelf>
 
   <toolshelf name="create" label="Create">

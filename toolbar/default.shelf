@@ -5,8 +5,20 @@
  Note, that two definitions of the same element are not allowed in
  a single file. -->
 
-  <tool name="save_file" label="Save File" icon="PLASMA_App">
+  <tool name="save_file" label="Save File" icon="${HOUDINI_TOOLBAR_PATH}/icons/save.png">
     <script scriptType="python"><![CDATA[from Houdini.save_file import main
+
+main.main()
+]]></script>
+  </tool>
+  <tool name="scene_loader" label="Load File" icon="${HOUDINI_TOOLBAR_PATH}/icons/loader.png">
+    <script scriptType="python"><![CDATA[from Houdini.scene_loader import main
+
+main.main()
+]]></script>
+  </tool>
+  <tool name="publish" label="Publish" icon="${HOUDINI_TOOLBAR_PATH}/icons/publish.png">
+    <script scriptType="python"><![CDATA[from Houdini.publish import main
 
 main.main()
 ]]></script>
