@@ -85,7 +85,7 @@ class UI(Qw.QWidget):
         self.shd_btn.setCheckable(True)
         self.shd_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
-        self.shd_btn = Qw.QPushButton("RIG")
+        self.rig_btn = Qw.QPushButton("RIG")
         self.rig_btn.setCheckable(True)
         self.rig_btn.setSizePolicy(Qw.QSizePolicy.Expanding, Qw.QSizePolicy.Expanding)
 
