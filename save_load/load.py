@@ -6,4 +6,4 @@ from Houdini.globals import ROOT_PATH, PROJECT
 
 def main():
 
-    instance = Controller(SaveLoad(), "Load", get_main_window(), ROOT_PATH, PROJECT)
+    instance = Controller(SaveLoad().load, "Load", get_main_window(), ROOT_PATH, PROJECT)
