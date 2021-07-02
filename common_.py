@@ -33,8 +33,6 @@ def get_filepath():
     """
     filepath = hou.hipFile.path()
 
-    print(filepath, 123)
-
     if 'untitled' in filepath:
         raise RuntimeError("File not saved")
     else:
@@ -48,7 +46,6 @@ def save_as(filepath):
         filepath (str): path/filename.hip
 
     """
-    print(filepath, 456)
     hou.hipFile.save(file_name=filepath)
 
 
