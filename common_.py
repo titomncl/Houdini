@@ -14,6 +14,15 @@ def get_main_window():
     return main_window
 
 
+def kill_instance(title):
+    from qtpy.QtWidgets import QWidget
+
+    main_window = get_main_window()
+
+    for win in main_window.findChildren(QWidget, title):
+        win.close()
+
+
 def get_filepath():
     """
     Get the filepath of the scene
