@@ -83,24 +83,25 @@ class SaveFile(object):
             raise ValueError(e)
 
     @staticmethod
-    def first_save(type, name, task):
+    def first_save(type_, name_, task_):
         """
 
         Args:
-            type (str): chara, props, set
-            name (str): name of the asset
-            task (str): departement of the file: MOD, RIG, SHD, ANIM
+            type_ (str): chara, props, set
+            name_ (str): name of the asset
+            task_ (str): departement of the file: MOD, RIG, SHD, ANIM
 
         Returns:
             str, str: versionned and published filepath
 
         """
-        filename = concat(name, task, "001.hip", separator="_")
+        print(type_, name_, task_, 789)
+        filename = concat(name_, task_, "001.hip", separator="_")
 
         # if task is "FX":
         #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, "SCENE/OLD", filename, separator="/")
         # else:
         #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
-        filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/VERSION", filename, separator="/")
+        filepath = concat(PFE_PATH, "DATA/LIB", type_, name_, task_, "SCENE/VERSION", filename, separator="/")
 
         save_as(filepath)
