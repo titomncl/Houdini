@@ -82,15 +82,15 @@ class SaveLoad(object):
         else:
             raise RuntimeError("No files found.")
 
-    def save(self, type_, name_, task_):
+    def save(self, type_="", name_="", task_=""):
         """
         Args:
             type_ (str): chara, props, set
             name_ (str): name of the asset
-            task_ (str): departement of the file: MOD, RIG, SHD, ANIM
+            task_ (str): department of the file: MOD, RIG, SHD
 
         Returns:
-            str, str: versionned and published filepath
+            str, str: versioned and published filepath
 
         """
 
