@@ -6,15 +6,15 @@
  a single file. -->
 
   <tool name="save_file" label="Save File" icon="${HOUDINI_TOOLBAR_PATH}/icons/save.png">
-    <script scriptType="python"><![CDATA[from Houdini.save_file import main
+    <script scriptType="python"><![CDATA[from Houdini.save_load import save
 
-main.main()
+save.main()
 ]]></script>
   </tool>
   <tool name="scene_loader" label="Load File" icon="${HOUDINI_TOOLBAR_PATH}/icons/loader.png">
-    <script scriptType="python"><![CDATA[from Houdini.scene_loader import main
+    <script scriptType="python"><![CDATA[from Houdini.save_load import load
 
-main.main()
+load.main()
 ]]></script>
   </tool>
   <tool name="publish" label="Publish" icon="${HOUDINI_TOOLBAR_PATH}/icons/publish.png">
