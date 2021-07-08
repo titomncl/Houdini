@@ -18,9 +18,9 @@ load.main()
 ]]></script>
   </tool>
   <tool name="publish" label="Publish" icon="${HOUDINI_TOOLBAR_PATH}/icons/publish.png">
-    <script scriptType="python"><![CDATA[from Houdini.publish import main
+    <script scriptType="python"><![CDATA[from Houdini.publish import publish
 
-main.main()
+publish.save_and_publish()
 ]]></script>
   </tool>
 </shelfDocument>
