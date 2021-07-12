@@ -4,7 +4,7 @@ from shutil import copyfile
 
 from CommonTools.concat import concat
 
-from Houdini.globals import PFE_PATH, HOU_EXT
+from Houdini.globals import PROJECT_PATH, HOU_EXT
 from Houdini.common_ import get_filepath, save_as
 
 
