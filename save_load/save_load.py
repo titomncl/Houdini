@@ -2,7 +2,7 @@ import os
 
 from CommonTools.concat import concat
 
-from Houdini.globals import PFE_PATH, ROOT_PATH, PROJECT, HOU_EXT
+from Houdini.globals import PROJECT_PATH, ROOT_PATH, PROJECT, HOU_EXT
 from Houdini.common_ import get_filepath, save_as, open_file
 
 
