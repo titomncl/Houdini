@@ -11,4 +11,3 @@ def main():
         save_load.save()
     else:
         instance = Controller(save_load.save, "Save", get_main_window(), ROOT_PATH, PROJECT)
-

@@ -11,7 +11,7 @@ from Houdini.common_ import get_filepath, save_as
 def filepath():
     try:
         filepath_ = get_filepath()
-        if PFE_PATH not in filepath_:
+        if PROJECT_PATH not in filepath_:
             return None
         return filepath_
     except RuntimeError:
