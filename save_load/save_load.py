@@ -20,7 +20,7 @@ class SaveLoad(object):
     def filepath(self):
         try:
             filepath_ = get_filepath()
-            if PFE_PATH not in filepath_:
+            if PROJECT_PATH not in filepath_:
                 return None
             else:
                 return filepath_
@@ -57,7 +57,7 @@ class SaveLoad(object):
 
     def file_to_load(self, type_, name, task):
 
-        filepath = concat(PFE_PATH, "DATA/LIB", type_, name, task, "SCENE/VERSION", separator="/")
+        filepath = concat(PROJECT_PATH, "DATA/LIB", type_, name, task, "SCENE/VERSION", separator="/")
 
         last_file = self.get_last_file(filepath)
 
@@ -99,26 +99,26 @@ class SaveLoad(object):
 
             files = os.listdir(path)
 
-            file = self.get_last_file(files)
+            file_ = self.get_last_file(files)
 
-            last_file, _ = os.path.splitext(file)
+            last_file, _ = os.path.splitext(file_)
 
             new_filename = self.next_version(last_file)
             new_filepath = concat(path, new_filename + HOU_EXT, separator="/")
 
             save_as(new_filepath)
         else:
-            filename = concat(name_, task_, "001" + HOU_EXT, separator="_")
+            filename_ = concat(name_, task_, "001" + HOU_EXT, separator="_")
 
             # if task is "FX":
             #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, "SCENE/OLD", filename, separator="/")
             # else:
             #     filepath = concat(PFE_PATH, "DATA/LIB", type, name, task, "SCENE/OLD", filename, separator="/")
-            filepath = concat(PFE_PATH, "DATA/LIB", type_, name_, task_, "SCENE/VERSION", filename, separator="/")
+            filepath = concat(PROJECT_PATH, "DATA/LIB", type_, name_, task_, "SCENE/VERSION", filename_, separator="/")
 
             save_as(filepath)
 
     def load(self, type_, name_, task_):
-        file = self.file_to_load(type_, name_, task_)
+        file_ = self.file_to_load(type_, name_, task_)
 
-        open_file(file)
+        open_file(file_)
