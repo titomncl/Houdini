@@ -1,5 +1,7 @@
 import os
 
+from collections import OrderedDict
+
 from CommonTools.concat import concat
 
 from Houdini.globals import PROJECT_PATH, ROOT_PATH, PROJECT, HOU_EXT
@@ -26,6 +28,31 @@ class SaveLoad(object):
                 return filepath_
         except RuntimeError:
             return None
+
+    @property
+    def buttons(self):
+        buttons = OrderedDict()
+
+        buttons["MOD"] = {
+            "CHARA": True,
+            "PROPS": True,
+            "SET": True,
+            "FX": False,
+        }
+        buttons["SHD"] = {
+            "CHARA": True,
+            "PROPS": True,
+            "SET": True,
+            "FX": False,
+        }
+        buttons["RIG"] = {
+            "CHARA": True,
+            "PROPS": False,
+            "SET": False,
+            "FX": False,
+        }
+
+        return buttons
 
     @staticmethod
     def next_version(file_):
