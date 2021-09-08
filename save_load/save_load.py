@@ -129,7 +129,7 @@ class SaveLoad(object):
 
             files = os.listdir(path)
 
-            file_ = self.get_last_file(files)
+            file_ = self.get_last_file(path)
 
             last_file, _ = os.path.splitext(file_)
 
