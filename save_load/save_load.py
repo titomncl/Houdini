@@ -102,11 +102,11 @@ class SaveLoad(object):
 
         if files:
 
-            maya_files = [f for f in files if HOU_EXT in f]
+            hou_files = [f for f in files if HOU_EXT in f]
 
-            maya_files.sort()
+            hou_files.sort()
 
-            last_file = maya_files[-1]
+            last_file = hou_files[-1]
 
             return last_file
         else:
