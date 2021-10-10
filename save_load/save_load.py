@@ -1,4 +1,12 @@
 import os
+import sys
+
+if sys.version_info > (3,):
+    import typing
+
+    if typing.TYPE_CHECKING:
+        from Odin import Asset, Shot
+        from typing import Optional, Union
 
 from collections import OrderedDict
 
@@ -33,24 +41,9 @@ class SaveLoad(object):
     def buttons(self):
         buttons = OrderedDict()
 
-        buttons["MOD"] = {
-            "CHARA": True,
-            "PROPS": True,
-            "SET": True,
-            "FX": False,
-        }
-        buttons["SHD"] = {
-            "CHARA": True,
-            "PROPS": True,
-            "SET": True,
-            "FX": False,
-        }
-        buttons["RIG"] = {
-            "CHARA": True,
-            "PROPS": False,
-            "SET": False,
-            "FX": False,
-        }
+        buttons["Assets"] = ["MOD", "SHD", "RIG"]
+
+        buttons["Shots"] = ["ANIMATION", "RENDERING", "COMPOSITING", "FX"]
 
         return buttons
 
@@ -82,16 +75,11 @@ class SaveLoad(object):
             e = concat(file_, " is incorrect.")
             raise ValueError(e)
 
-    def file_to_load(self, type_, name, task):
+    def file_to_load(self, path):
 
-        if type_ == "FX":
-            filepath = concat(PROJECT_PATH, "DATA/LIB", type_, name, "SCENES/VERSION", separator="/")
-        else:
-            filepath = concat(PROJECT_PATH, "DATA/LIB", type_, name, task, "SCENES/VERSION", separator="/")
+        last_file = self.get_last_file(path)
 
-        last_file = self.get_last_file(filepath)
-
-        filepath = concat(filepath, last_file, separator="/")
+        filepath = concat(path, last_file, separator="/")
 
         return filepath
 
@@ -112,18 +100,14 @@ class SaveLoad(object):
         else:
             raise RuntimeError("No files found.")
 
-    def save(self, type_="", name_="", task_=""):
-        """
+    def save(self, item="", dpt=""):
+        # type: (Optional[Union[Asset, Shot]], str) -> None
+        """.
         Args:
-            type_ (str): chara, props, set
-            name_ (str): name of the asset
-            task_ (str): department of the file: MOD, RIG, SHD
-
-        Returns:
-            str, str: versioned and published filepath
+            item: name of the asset
+            dpt: department of the file: MOD, RIG, SHD
 
         """
-
         if self.filepath:
             path, _ = os.path.split(self.filepath)
 
@@ -138,36 +122,38 @@ class SaveLoad(object):
 
             save_as(new_filepath)
         else:
+            if "FX" in item.paths["PATH"]:
+                path = os.path.join(item.paths["PATH"], item.name).replace("\\", "/")
+                path = self.glob_recursive(path, "VERSION")
 
-            if type_ == "FX":
-                filename_ = concat(name_, type_, "001" + HOU_EXT, separator="_")
+                filename = concat(item.name, "001" + HOU_EXT, separator="_")
+                filepath_ = concat(path, filename, separator="/")
 
-                filepath = concat(
-                    PROJECT_PATH,
-                    "DATA/LIB",
-                    type_,
-                    name_,
-                    "SCENES/VERSION",
-                    filename_,
-                    separator="/"
-                )
+                save_as(filepath_)
             else:
-                filename_ = concat(name_, task_, "001" + HOU_EXT, separator="_")
+                path = os.path.join(item.paths["PATH"], item.name, dpt).replace("\\", "/")
+                path = self.glob_recursive(path, "VERSION")
 
-                filepath = concat(
-                    PROJECT_PATH,
-                    "DATA/LIB",
-                    type_,
-                    name_,
-                    task_,
-                    "SCENES/VERSION",
-                    filename_,
-                    separator="/"
-                )
+                filename = concat(item.name, dpt, "001" + HOU_EXT, separator="_")
+                filepath_ = concat(path, filename, separator="/")
 
-            save_as(filepath)
+                save_as(filepath_)
 
-    def load(self, type_, name_, task_):
-        file_ = self.file_to_load(type_, name_, task_)
+    def load(self, item, dpt):
+        if "FX" in item.paths["PATH"]:
+            path = os.path.join(item.paths["PATH"], item.name).replace("\\", "/")
+        else:
+            path = os.path.join(item.paths["PATH"], item.name, dpt).replace("\\", "/")
+
+        path = self.glob_recursive(path, "VERSION")
+
+        file_ = self.file_to_load(path)
 
         open_file(file_)
+
+    def glob_recursive(self, path, endswith):
+        for dir_path, dirs, _ in os.walk(path):
+            for dir in dirs:
+                file_path = os.path.join(dir_path, dir).replace("\\", "/")
+                if file_path.endswith(endswith):
+                    return file_path
