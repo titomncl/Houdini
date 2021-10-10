@@ -43,7 +43,7 @@ class SaveLoad(object):
 
         buttons["Assets"] = ["MOD", "SHD", "RIG"]
 
-        buttons["Shots"] = ["ANIMATION", "RENDERING", "COMPOSITING", "FX"]
+        buttons["Shots"] = ["ANIMATION", "LAYOUT", "LIGHTING", "COMPOSITING", "FX"]
 
         return buttons
 
