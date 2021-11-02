@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="vspa" label="VSPA">
+    <memberTool name="save_file"/>
+    <memberTool name="scene_loader"/>
+    <memberTool name="publish"/>
+  </toolshelf>
+
+  <tool name="save_file" label="Save File" icon="${DEV_ENV}/Houdini/prefs/toolbar/icons/save.png">
+    <script scriptType="python"><![CDATA[from Houdini.save_load import save
+save.main()
+]]>
+    </script>
+  </tool>
+
+  <tool name="scene_loader" label="Load File" icon="${DEV_ENV}/Houdini/prefs/toolbar/icons/loader.png">
+    <script scriptType="python"><![CDATA[from Houdini.save_load import load
+load.main()
+]]>
+    </script>
+  </tool>
+
+  <tool name="publish" label="Publish" icon="${DEV_ENV}/Houdini/prefs/toolbar/icons/publish.png">
+    <script scriptType="python"><![CDATA[from Houdini.publish import publish
+publish.save_and_publish()
+]]>
+    </script>
+  </tool>
+
+  <shelfSetEdit name="shelf_set_1" fileLocation="">
+          <addMemberToolshelf name="vspa" inPosition="0"/>
+  </shelfSetEdit>
+
+</shelfDocument>
