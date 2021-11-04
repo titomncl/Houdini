@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 if sys.version_info > (3,):
@@ -12,7 +13,7 @@ from collections import OrderedDict
 
 from CommonTools.concat import concat
 
-from Houdini.globals import PROJECT_PATH, ROOT_PATH, PROJECT, HOU_EXT
+from Houdini.globals import PROJECT_PATH, ROOT_PATH, PROJECT, HOU_EXT, FILENAME_PATTERN
 from Houdini.common_ import get_filepath, save_as, open_file
 
 
@@ -90,7 +91,9 @@ class SaveLoad(object):
 
         if files:
 
-            hou_files = [f for f in files if HOU_EXT in f]
+            file_pattern = re.compile("^" + FILENAME_PATTERN + HOU_EXT + "$")
+
+            hou_files = list(set([f for f in files if file_pattern.match(f)]))
 
             hou_files.sort()
 
