@@ -137,8 +137,16 @@ class SaveLoad(object):
                 path = os.path.join(item.paths["PATH"], item.name, dpt).replace("\\", "/")
                 path = self.glob_recursive(path, "VERSION")
 
-                filename = concat(item.name, dpt, "001" + HOU_EXT, separator="_")
-                filepath_ = concat(path, filename, separator="/")
+                file_ = self.get_last_file(path)
+
+                if item.name in file_ and dpt in file_ and HOU_EXT in file_:
+                    last_file, _ = os.path.splitext(file_)
+
+                    filename = self.next_version(last_file)
+                else:
+                    filename = concat(item.name, dpt, "001" + HOU_EXT, separator="_")
+
+                filepath_ = concat(path, filename + HOU_EXT, separator="/")
 
                 save_as(filepath_)
 
